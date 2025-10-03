@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculadora Barça Responsive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Video de fondo para móviles -->
+  <video autoplay muted loop playsinline id="bgVideo"></video>
+
+  <!-- Imagen de fondo para PC / tablets / laptops -->
+  <div id="bgImage"></div>
+
+  <div class="calculadora" role="application" aria-label="Calculadora Barça">
+    <header class="calc-header">
+      <h1>Calculadora Barça</h1>
+    </header>
+
+    <div class="calc-body">
+      <input id="num1" type="number" placeholder="Número 1" inputmode="decimal" />
+      <input id="operador" type="text" placeholder="Operador (+ - * / ^ √ %)" maxlength="2" />
+      <input id="num2" type="number" placeholder="Número 2" inputmode="decimal" />
+      <button id="btnCalc">Calcular</button>
+      <p id="resultado">Resultado: —</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Detectar si es móvil
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const bgVideo = document.getElementById("bgVideo");
+    const bgImage = document.getElementById("bgImage");
+
+    if (isMobile) {
+      bgVideo.src = "lamine.mp4";   // <-- coloca aquí tu video (mismo folder)
+      bgVideo.style.display = "block";
+      bgImage.style.display = "none";
+    } else {
+      bgVideo.style.display = "none";
+      bgImage.style.display = "block";
+    }
+  </script>
+</body>
+</html>
